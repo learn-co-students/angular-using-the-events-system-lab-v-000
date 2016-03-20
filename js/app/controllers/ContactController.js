@@ -1,6 +1,9 @@
 function ContactController($rootScope) {
+  // captures controller obj
   var ctrl = this;
+  // listens for 'remove' listener (defined in contact directive)
   $rootScope.$on('remove', function(e, id) {
+    // grabs contacts and removes clicked id (passed in above)
     console.log(ctrl.contacts.splice(id, 1));
   });
     this.contacts = [
