@@ -7,8 +7,10 @@ function Contact() {
 			'</div>'
 		].join(''),
 		controller: function ($rootScope) {
+			// defines action to be taken on ng-click directive
 			this.remove = function (id) {
-				
+				// publishes event (remove) down the scope tree (child scopes)
+			$rootScope.$broadcast('remove', id);
 			};
 		},
 		controllerAs: 'ctrl',
