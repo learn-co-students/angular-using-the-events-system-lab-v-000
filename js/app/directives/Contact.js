@@ -9,7 +9,7 @@ function Contact() {
 		controller: function ($rootScope) {
 			// defines action to be taken on ng-click directive
 			this.remove = function (id) {
-				console.log(id);
+				
 			$rootScope.$broadcast('remove', id);
 			};
 		},
