@@ -1,6 +1,14 @@
 function ContactController($rootScope) {
 
-    this.contacts = [
+    var vm = this;
+
+    $rootScope.$on('removeContact', function (event, id) {
+      vm.contacts.splice(id, 1);
+    });
+
+    //$scope.$on('$destroy', unbind);
+
+    vm.contacts = [
         {
             "name": {
                 "title": "mr",
@@ -3002,6 +3010,8 @@ function ContactController($rootScope) {
             }
         }
     ];
+
+
 }
 
 angular
