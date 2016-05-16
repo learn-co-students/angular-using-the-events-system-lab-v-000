@@ -8,7 +8,9 @@ function Contact() {
 		].join(''),
 		controller: function ($rootScope) {
 			this.remove = function (id) {
-				
+				$rootScope.$emit('eventName', {id: id});
+				// debugger;
+				// To publish event upwards, we use $scope.$emit.
 			};
 		},
 		controllerAs: 'ctrl',

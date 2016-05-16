@@ -15,3 +15,4 @@ In this repo we've got a list of contacts repeated, using a contact directive to
 In the directive we've got a remove button. Hook this up to use the event system - firing off the `id` of the contact to be removed from our controller. Use the `remove` function in the controller, as this will be called when the user clicks on the remove button.
 
 Make sure you unsubscribe from these events too!
+
