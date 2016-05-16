@@ -1,5 +1,8 @@
 function ContactController($rootScope) {
-
+    var ctrl = this
+    $rootScope.$on('eventName', function (event, data) {
+        ctrl.contacts.splice(data.id, 1);
+    });
     this.contacts = [
         {
             "name": {
@@ -3002,6 +3005,7 @@ function ContactController($rootScope) {
             }
         }
     ];
+
 }
 
 angular
