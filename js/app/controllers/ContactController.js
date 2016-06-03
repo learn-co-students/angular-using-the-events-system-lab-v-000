@@ -1,4 +1,11 @@
-function ContactController($rootScope) {
+function ContactController($rootScope, $scope) {
+    var ctrl = this;
+
+    var unbind = $rootScope.$on('removeContact', function(e, data){
+        ctrl.contacts.splice(data, 1);
+    });
+
+    $scope.$on('$destroy', unbind);
 
     this.contacts = [
         {
@@ -3001,7 +3008,7 @@ function ContactController($rootScope) {
                 "thumbnail": "https://randomuser.me/api/portraits/thumb/women/39.jpg"
             }
         }
-    ];
+    ]
 }
 
 angular
