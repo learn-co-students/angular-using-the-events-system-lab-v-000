@@ -1,6 +1,8 @@
 function ContactController($rootScope, $scope) {
+    var ctrl = this;
+
     var unbind = $rootScope.$on('removeContact', function(e, data){
-        $scope.ctrl.contacts.splice(data, 1);
+        ctrl.contacts.splice(data, 1);
     });
 
     $scope.$on('$destroy', unbind);
