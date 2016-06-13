@@ -7,9 +7,11 @@ function Contact() {
 			'</div>'
 		].join(''),
 		controller: function ($rootScope) {
+
 			this.remove = function (id) {
-				
+				$rootScope.$broadcast('removeContact', { id: id });
 			};
+
 		},
 		controllerAs: 'ctrl',
 		bindToController: {

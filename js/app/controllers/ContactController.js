@@ -1,5 +1,12 @@
 function ContactController($rootScope) {
+    var controller = this
+    var removeItem = $rootScope.$on('removeContact', function(event, data) {
+        
+        controller.contacts.splice(data.id, 1)
+    });
 
+    $rootScope.$on('$destroy', removeItem);
+    
     this.contacts = [
         {
             "name": {
@@ -3002,6 +3009,7 @@ function ContactController($rootScope) {
             }
         }
     ];
+
 }
 
 angular
