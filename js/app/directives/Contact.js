@@ -8,7 +8,7 @@ function Contact() {
 		].join(''),
 		controller: function ($rootScope) {
 			this.remove = function (id) {
-				$scope.$emit('emitID', id);
+				$rootScope.$broadcast('removeID', id);
 			};
 		},
 		controllerAs: 'ctrl',
