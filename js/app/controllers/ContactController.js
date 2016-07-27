@@ -5,6 +5,12 @@ function ContactController($rootScope) {
     people.contacts.splice(data, 1);
   });
 
+  var unbind = $rootScope.$on('removeId', function () {
+
+  });
+
+  $rootScope.$on('$destroy', unbind);
+
     people.contacts = [
         {
             "name": {
