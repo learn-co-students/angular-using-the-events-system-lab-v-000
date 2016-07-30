@@ -1,5 +1,8 @@
 function ContactController($rootScope) {
-
+  var controller = this
+  $rootScope.$on('remove', function(event, id) {
+    controller.contacts.splice(id, 1)
+  })
     this.contacts = [
         {
             "name": {
