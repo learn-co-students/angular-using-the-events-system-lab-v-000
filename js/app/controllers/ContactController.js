@@ -1,4 +1,4 @@
-function ContactController($rootScope) {
+function ContactController($rootScope, $log) {
 
     this.contacts = [
         {
@@ -3002,6 +3002,21 @@ function ContactController($rootScope) {
             }
         }
     ];
+
+    // set var accessible within function
+    var contactArray = this.contacts
+
+    // add listener for event
+    var myListener = $rootScope.$on('myBroadcast', function(event, data) {
+        // remove the object at index[data]
+        contactArray.splice(data,1);
+        // include console.log confirmation
+        $log.log("The contact at index " + data + " was removed.");
+    })
+
+    // unbind listener manually from rootScope
+    $rootScope.$on('$destroy', myListener);
+
 }
 
 angular

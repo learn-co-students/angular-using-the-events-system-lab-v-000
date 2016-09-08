@@ -8,7 +8,8 @@ function Contact() {
 		].join(''),
 		controller: function ($rootScope) {
 			this.remove = function (id) {
-				
+				// add broadcast event downwards from rootScope
+				$rootScope.$broadcast('myBroadcast', id);
 			};
 		},
 		controllerAs: 'ctrl',
