@@ -9,7 +9,7 @@ function Contact() {
 		controller: function ($rootScope) {
 			this.remove = function (id) {
 				
-				document.querySelector('ul').children[id].remove()
+				$rootScope.$broadcast('remove', id);
 				
 			};
 		},
