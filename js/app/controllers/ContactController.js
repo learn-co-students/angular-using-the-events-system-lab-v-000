@@ -3002,6 +3002,14 @@ function ContactController($rootScope) {
             }
         }
     ];
+    var $ctrl = this;
+
+    var contactRemover = $rootScope.$on('removeContact', function(event, data){
+      console.log($ctrl.contacts[data.id]);
+      $ctrl.contacts.splice([data.id], 1);
+    });
+
+    $rootScope.$on('destroy', contactRemover);
 }
 
 angular
