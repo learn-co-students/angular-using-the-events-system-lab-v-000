@@ -7,8 +7,12 @@ function Contact() {
 			'</div>'
 		].join(''),
 		controller: function ($rootScope) {
-			this.remove = function (id) {
-				
+			this.remove = function(id) {
+				debugger
+				var contact = this.contacts[id];
+				$rootScope.$emit('destroy_contact', id);
+				// $scope.$on('$destroy', myListener);
+				$rootScope.destroy;
 			};
 		},
 		controllerAs: 'ctrl',
