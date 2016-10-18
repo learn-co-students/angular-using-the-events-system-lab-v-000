@@ -1,10 +1,10 @@
 function ContactController($rootScope) {
-    var destroy   = $rootScope.$on('destroy_contact', function(event, data) {
-        debugger
-        $rootScope.contacts.splice(data, 1);
+    var ctrl = this;
+    var destroy   = $rootScope.$on('remove_contact', function(event, id) {
+        ctrl.contacts.splice(id, 1);
     }) 
 
-    $rootScope.$on('$destroy', destroy);
+    // $rootScope.$on('$destroy', destroy);
 
     this.contacts = [
         {
