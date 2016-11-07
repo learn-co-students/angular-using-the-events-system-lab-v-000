@@ -3008,7 +3008,6 @@ function ContactController($rootScope) {
         }
     ];
 
-
 }
 
 angular
