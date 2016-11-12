@@ -1,4 +1,13 @@
-function ContactController($rootScope) {
+function ContactController($rootScope, $scope) {
+  var ctrl = this;
+
+  var remove = $rootScope.$on('remove', function(event, data) {
+    ctrl.contacts.splice(data, 1);
+  });
+
+  $scope.$on('$destroy', function() {
+    remove();
+  });
 
     this.contacts = [
         {
