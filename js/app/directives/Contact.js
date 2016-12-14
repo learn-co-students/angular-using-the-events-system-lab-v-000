@@ -8,9 +8,16 @@ function Contact() {
 		].join(''),
 		controller: function ($rootScope) {
 			this.remove = function (id) {
-				
-			};
+				 $rootScope.$broadcast('click',id)
+				 id.destroy;
+			},
+
+			 var unbind = $rootScope.$on('eventName', function () {
+			    // awesome!
+			});
+			this.$on('$destroy', unbind);
 		},
+
 		controllerAs: 'ctrl',
 		bindToController: {
 			id: '=',
