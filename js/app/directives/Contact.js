@@ -6,19 +6,18 @@ function Contact() {
 				'Name: {{ ctrl.contact.name.title }} {{ ctrl.contact.name.first }} {{ ctrl.contact.name.last }} - <a href="" ng-click="ctrl.remove(ctrl.id)">Remove</a>',
 			'</div>'
 		].join(''),
-		controller: function ($rootScope) {
-			this.remove = function (id) {
-				 $rootScope.$broadcast('click',id)
-				 id.destroy;
-			},
-
-			 var unbind = $rootScope.$on('eventName', function () {
-			    // awesome!
-			});
-			this.$on('$destroy', unbind);
-		},
 
 		controllerAs: 'ctrl',
+		controller: function ($rootScope) {
+			this.remove = function (id) {
+				 $rootScope.$broadcast('remove', id);
+						// this.remove(this.id == id);
+			};
+			// $rootScope.$on('remove', function (remove, id) {
+			// 		console.log($rootScope.id);
+			// 	});
+		},
+
 		bindToController: {
 			id: '=',
 			contact: '='
