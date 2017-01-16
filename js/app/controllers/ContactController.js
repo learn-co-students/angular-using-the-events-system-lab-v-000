@@ -1,4 +1,9 @@
-function ContactController($rootScope) {
+function ContactController($rootScope, $scope) {
+    const unbind = $scope.$on('removeContact', (evt, data) => {
+      this.contacts.splice(data, 1)
+    })
+
+    $scope.$on('$destroy', unbind)
 
     this.contacts = [
         {
