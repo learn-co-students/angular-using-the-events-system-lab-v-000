@@ -1,6 +1,14 @@
-function ContactController($rootScope) {
+function ContactController($rootScope, $scope) {
 
-    this.contacts = [
+    var ctrl = this;
+
+    var removeListener = $rootScope.$on('remove', function(event, data){
+        ctrl.contacts.splice(data, 1);
+    })
+
+    // $scope.$on('remove', removeListener);
+
+    ctrl.contacts = [
         {
             "name": {
                 "title": "mr",
