@@ -1,4 +1,8 @@
 function ContactController($rootScope) {
+    var mv = this
+    var unbind = $rootScope.$on('remove', function(event, args){
+        mv.contacts.splice(args, 1)
+    })
 
     this.contacts = [
         {

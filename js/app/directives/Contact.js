@@ -6,9 +6,9 @@ function Contact() {
 				'Name: {{ ctrl.contact.name.title }} {{ ctrl.contact.name.first }} {{ ctrl.contact.name.last }} - <a href="" ng-click="ctrl.remove(ctrl.id)">Remove</a>',
 			'</div>'
 		].join(''),
-		controller: function ($rootScope) {
+		controller: function ($rootScope, $scope) {
 			this.remove = function (id) {
-				
+				$rootScope.$emit('remove', id);
 			};
 		},
 		controllerAs: 'ctrl',
